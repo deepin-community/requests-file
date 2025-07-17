@@ -1,4 +1,9 @@
-#!/usr/bin/make -f
+#! /usr/bin/make -f
+
+export PYBUILD_NAME=requests-file
 
 %:
-	dh $@
+	dh $@ --buildsystem=pybuild
+
+#override_dh_auto_test:
+#	PYTHONPATH=$(CURDIR) pytest-3
